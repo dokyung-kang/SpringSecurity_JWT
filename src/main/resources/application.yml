@@ -21,3 +21,9 @@ spring:
     web:
       pageable:
         one-indexed-parameters: true
+jwt:
+  token:
+    secretKey: randomsecretkeynameleast32byteto64byte
+    expiration:
+      access: 14400000
+      refresh: 604800000

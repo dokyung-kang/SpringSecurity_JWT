@@ -27,6 +27,7 @@ public class MemberResponseDTO {
     public static class LoginResultDTO {
         Long memberId;
         String accessToken;
+        String refreshToken;
     }
 
     // 내 정보 조회

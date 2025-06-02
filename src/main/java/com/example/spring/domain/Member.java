@@ -52,6 +52,10 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Setter
+    @Column(name = "refresh_token")
+    private String refreshToken;
+
     public void encodePassword(String password) {
         this.password = password;
     }

@@ -17,5 +17,6 @@ public class JwtProperties {
     @Setter
     public static class Expiration{
         private Long access;
+        private Long refresh;
     }
 }

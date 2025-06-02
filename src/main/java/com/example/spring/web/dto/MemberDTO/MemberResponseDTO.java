@@ -28,4 +28,15 @@ public class MemberResponseDTO {
         Long memberId;
         String accessToken;
     }
+
+    // 내 정보 조회
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MemberInfoDTO{
+        String name;
+        String email;
+        String gender;
+    }
 }

@@ -57,10 +57,15 @@ public class MemberCommandServiceImpl implements MemberCommandService {
         );
 
         String accessToken = jwtTokenProvider.generateAccessToken(authentication);
+        String refreshToken = jwtTokenProvider.generateRefreshToken(authentication);
+
+        member.setRefreshToken(refreshToken);
+        memberRepository.save(member);
 
         return MemberConverter.toLoginResultDTO(
                 member.getId(),
-                accessToken
+                accessToken,
+                refreshToken
         );
     }
 }

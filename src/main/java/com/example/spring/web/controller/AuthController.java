@@ -27,4 +27,14 @@ public class AuthController {
         MemberResponseDTO.LoginResultDTO result = authService.refreshJwtToken(request);
         return ApiResponse.onSuccess(result);
     }
+
+    @PostMapping("/logout")
+    @Operation(summary = "로그아웃 API",
+            description = "로그아웃하여 현재 로그인한 사용자의 refresh token을 무효화합니다.",
+            security = { @SecurityRequirement(name = "JWT TOKEN") }
+    )
+    public ApiResponse<Void> logout(HttpServletRequest request) {
+        authService.logout(request);
+        return ApiResponse.onSuccess(null);
+    }
 }

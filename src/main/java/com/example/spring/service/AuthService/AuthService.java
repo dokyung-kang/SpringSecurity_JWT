@@ -8,4 +8,6 @@ public interface AuthService {
     // 토큰 재발급
     MemberResponseDTO.LoginResultDTO refreshJwtToken(HttpServletRequest request);
 
+    // 로그아웃
+    void logout(HttpServletRequest request);
 }

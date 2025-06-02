@@ -53,4 +53,18 @@ public class AuthServiceImpl implements AuthService{
 
         return MemberConverter.toLoginResultDTO(member.getId(), newAccessToken, newRefreshToken);
     }
+
+    // 로그아웃
+    @Override
+    @Transactional
+    public void logout(HttpServletRequest request) {
+        Authentication authentication = jwtTokenProvider.extractAuthentication(request);
+        String email = authentication.getName();
+
+        Member member = memberRepository.findByEmail(email)
+                .orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+
+        member.setRefreshToken(null);
+        memberRepository.save(member);
+    }
 }

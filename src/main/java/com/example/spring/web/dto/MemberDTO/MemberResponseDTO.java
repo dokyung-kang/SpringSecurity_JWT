@@ -18,4 +18,14 @@ public class MemberResponseDTO {
         Long memberId;
         LocalDateTime createdAt;
     }
+
+    // 로그인
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class LoginResultDTO {
+        Long memberId;
+        String accessToken;
+    }
 }

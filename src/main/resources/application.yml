@@ -36,7 +36,8 @@ spring:
             client-authentication-method: client_secret_post
             client-id: ${CLIENT_ID_KAKAO}
             client-secret: ${CLIENT_SECRET_KAKAO}
-            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+#            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+            redirect-uri: http://localhost:3000/oauth/kakao/callback
             authorization-grant-type: authorization_code
             scope:
               - profile_nickname

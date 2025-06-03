@@ -33,6 +33,10 @@ public enum ErrorStatus implements BaseErrorCode {
     NAVER_AUTH_FAIL(HttpStatus.UNAUTHORIZED, "NAVER401", "네이버 인증 실패"),
     NAVER_USERINFO_FAIL(HttpStatus.UNAUTHORIZED, "NAVER402", "네이버 사용자 정보 요청 실패"),
 
+    // 구글
+    GOOGLE_AUTH_FAIL(HttpStatus.UNAUTHORIZED, "GOOGLE401", "구글 인증 실패"),
+    GOOGLE_USERINFO_FAIL(HttpStatus.UNAUTHORIZED, "GOOGLE402", "구글 사용자 정보 조회 실패"),
+
     // 예시,,,
     ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),
 

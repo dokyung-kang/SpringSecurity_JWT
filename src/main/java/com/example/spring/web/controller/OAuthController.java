@@ -1,6 +1,7 @@
 package com.example.spring.web.controller;
 
 import com.example.spring.apiPayload.ApiResponse;
+import com.example.spring.service.OAuthService.google.GoogleOAuthService;
 import com.example.spring.service.OAuthService.kakao.KakaoOAuthService;
 import com.example.spring.service.OAuthService.naver.NaverOAuthService;
 import com.example.spring.web.dto.MemberDTO.MemberRequestDTO;
@@ -20,6 +21,7 @@ public class OAuthController {
 
     private final KakaoOAuthService kakaoOAuthService;
     private final NaverOAuthService naverOAuthService;
+    private final GoogleOAuthService googleOAuthService;
 
     @PostMapping("/kakao")
     @Operation(
@@ -40,6 +42,18 @@ public class OAuthController {
     public ApiResponse<MemberResponseDTO.LoginResultDTO> naverLogin(@RequestBody @Valid MemberRequestDTO.OAuthCodeRequestDTO request) {
         String code = request.getCode();
         MemberResponseDTO.LoginResultDTO result = naverOAuthService.naverLogin(code);
+        return ApiResponse.onSuccess(result);
+    }
+
+
+    @PostMapping("/google")
+    @Operation(
+            summary = "구글 로그인 API",
+            description = "프론트에서 받은 인가코드(code)를 통해 구글 로그인을 수행하고 JWT 토큰을 반환합니다."
+    )
+    public ApiResponse<MemberResponseDTO.LoginResultDTO> googleLogin(@RequestBody @Valid MemberRequestDTO.OAuthCodeRequestDTO request) {
+        String code = request.getCode();
+        MemberResponseDTO.LoginResultDTO result = googleOAuthService.googleLogin(code);
         return ApiResponse.onSuccess(result);
     }
 }

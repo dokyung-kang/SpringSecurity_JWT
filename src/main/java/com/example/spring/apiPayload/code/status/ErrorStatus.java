@@ -29,7 +29,9 @@ public enum ErrorStatus implements BaseErrorCode {
     KAKAO_USERINFO_FAIL(HttpStatus.UNAUTHORIZED, "KAKAO402", "카카오 사용자 정보 요청 실패"),
     KAKAO_INVALID_CODE( HttpStatus.BAD_REQUEST,"KAKAO403", "유효하지 않거나 만료된 카카오 인증 코드입니다."),
 
-
+    // 네이버
+    NAVER_AUTH_FAIL(HttpStatus.UNAUTHORIZED, "NAVER401", "네이버 인증 실패"),
+    NAVER_USERINFO_FAIL(HttpStatus.UNAUTHORIZED, "NAVER402", "네이버 사용자 정보 요청 실패"),
 
     // 예시,,,
     ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),

@@ -32,17 +32,18 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/",
                                 "/members/join",
-                                "/members/login"
+                                "/members/login",
+                                "/oauth/**"
                         ).permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
-                .oauth2Login(oauth2Login -> oauth2Login
-                        .userInfoEndpoint(userInfo -> userInfo
-                                .userService(customOAuth2UserService)
-                        )
-                        .successHandler(oAuth2AuthenticationSuccessHandler)
-                )
+//                .oauth2Login(oauth2Login -> oauth2Login
+//                        .userInfoEndpoint(userInfo -> userInfo
+//                                .userService(customOAuth2UserService)
+//                        )
+//                        .successHandler(oAuth2AuthenticationSuccessHandler)
+//                )
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

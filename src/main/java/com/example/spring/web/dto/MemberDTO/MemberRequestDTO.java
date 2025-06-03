@@ -48,4 +48,12 @@ public class MemberRequestDTO {
         @NotBlank(message = "패스워드는 필수입니다.")
         private String password;
     }
+
+    // 인가 코드 받기
+    @Getter
+    @Setter
+    public static class OAuthCodeRequestDTO {
+        @NotBlank(message = "인가코드는 필수입니다.")
+        private String code;
+    }
 }
